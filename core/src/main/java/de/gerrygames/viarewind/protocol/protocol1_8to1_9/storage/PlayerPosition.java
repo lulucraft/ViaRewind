@@ -21,11 +21,59 @@ public class PlayerPosition extends StoredObject {
 		this.posZ = z;
 	}
 
+	public double getPosX() {
+		return posX;
+	}
+
+	public void setPosX(double posX) {
+		this.posX = posX;
+	}
+
+	public double getPosY() {
+		return posY;
+	}
+
+	public void setPosY(double posY) {
+		this.posY = posY;
+	}
+
+	public double getPosZ() {
+		return posZ;
+	}
+
+	public void setPosZ(double posZ) {
+		this.posZ = posZ;
+	}
+
+	public float getYaw() {
+		return yaw;
+	}
+
 	public void setYaw(float yaw) {
 		this.yaw = yaw % 360f;
 	}
 
+	public float getPitch() {
+		return pitch;
+	}
+
 	public void setPitch(float pitch) {
 		this.pitch = pitch % 360f;
+	}
+
+	public boolean isOnGround() {
+		return onGround;
+	}
+
+	public void setOnGround(boolean onGround) {
+		this.onGround = onGround;
+	}
+
+	public int getConfirmId() {
+		return confirmId;
+	}
+
+	public void setConfirmId(int confirmId) {
+		this.confirmId = confirmId;
 	}
 }

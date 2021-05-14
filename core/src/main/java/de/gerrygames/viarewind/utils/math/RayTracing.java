@@ -3,20 +3,20 @@ package de.gerrygames.viarewind.utils.math;
 public class RayTracing {
 
 	public static Vector3d trace(Ray3d ray, AABB aabb, double distance) {
-		Vector3d invDir = new Vector3d(1f / ray.dir.x, 1f / ray.dir.y, 1f / ray.dir.z);
+		Vector3d invDir = new Vector3d(1f / ray.dir.getX(), 1f / ray.dir.getY(), 1f / ray.dir.getZ());
 
-		boolean signDirX = invDir.x < 0;
-		boolean signDirY = invDir.y < 0;
-		boolean signDirZ = invDir.z < 0;
+		boolean signDirX = invDir.getX() < 0;
+		boolean signDirY = invDir.getY() < 0;
+		boolean signDirZ = invDir.getZ() < 0;
 
-		Vector3d bbox = signDirX ? aabb.max : aabb.min;
-		double tmin = (bbox.x - ray.start.x) * invDir.x;
-		bbox = signDirX ? aabb.min : aabb.max;
-		double tmax = (bbox.x - ray.start.x) * invDir.x;
-		bbox = signDirY ? aabb.max : aabb.min;
-		double tymin = (bbox.y - ray.start.y) * invDir.y;
-		bbox = signDirY ? aabb.min : aabb.max;
-		double tymax = (bbox.y - ray.start.y) * invDir.y;
+		Vector3d bbox = signDirX ? aabb.getMax() : aabb.getMin();
+		double tmin = (bbox.getX() - ray.start.getX()) * invDir.getX();
+		bbox = signDirX ? aabb.getMin() : aabb.getMax();
+		double tmax = (bbox.getX() - ray.start.getX()) * invDir.getX();
+		bbox = signDirY ? aabb.getMax() : aabb.getMin();
+		double tymin = (bbox.getY() - ray.start.getY()) * invDir.getY();
+		bbox = signDirY ? aabb.getMin() : aabb.getMax();
+		double tymax = (bbox.getY() - ray.start.getY()) * invDir.getY();
 
 		if (tmin > tymax || tymin > tmax) return null;
 
@@ -24,10 +24,10 @@ public class RayTracing {
 
 		if (tymax < tmax) tmax = tymax;
 
-		bbox = signDirZ ? aabb.max : aabb.min;
-		double tzmin = (bbox.z - ray.start.z) * invDir.z;
-		bbox = signDirZ ? aabb.min : aabb.max;
-		double tzmax = (bbox.z - ray.start.z) * invDir.z;
+		bbox = signDirZ ? aabb.getMax() : aabb.getMin();
+		double tzmin = (bbox.getZ() - ray.start.getZ()) * invDir.getZ();
+		bbox = signDirZ ? aabb.getMin() : aabb.getMax();
+		double tzmax = (bbox.getZ() - ray.start.getZ()) * invDir.getZ();
 
 		if (tmin > tzmax || tzmin > tmax) return null;
 

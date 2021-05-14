@@ -147,6 +147,18 @@ public class Scoreboard extends StoredObject {
 		return scoreTeam.name;
 	}
 
+	public HashMap<Byte, String> getColorDependentSidebar() {
+		return colorDependentSidebar;
+	}
+
+	public String getColorIndependentSidebar() {
+		return colorIndependentSidebar;
+	}
+
+	public void setColorIndependentSidebar(String colorIndependentSidebar) {
+		this.colorIndependentSidebar = colorIndependentSidebar;
+	}
+
 	private class ScoreTeam {
 		private String prefix;
 		private String suffix;
@@ -158,4 +170,5 @@ public class Scoreboard extends StoredObject {
 			this.name = name;
 		}
 	}
+
 }

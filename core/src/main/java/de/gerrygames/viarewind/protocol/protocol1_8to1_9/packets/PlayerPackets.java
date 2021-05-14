@@ -1,5 +1,9 @@
 package de.gerrygames.viarewind.protocol.protocol1_8to1_9.packets;
 
+import java.util.ArrayList;
+import java.util.TimerTask;
+import java.util.UUID;
+
 import de.gerrygames.viarewind.protocol.protocol1_8to1_9.Protocol1_8TO1_9;
 import de.gerrygames.viarewind.protocol.protocol1_8to1_9.items.ItemRewriter;
 import de.gerrygames.viarewind.protocol.protocol1_8to1_9.storage.BlockPlaceDestroyTracker;
@@ -26,10 +30,6 @@ import us.myles.ViaVersion.protocols.protocol1_9_3to1_9_1_2.storage.ClientWorld;
 import us.myles.viaversion.libs.opennbt.tag.builtin.CompoundTag;
 import us.myles.viaversion.libs.opennbt.tag.builtin.ListTag;
 import us.myles.viaversion.libs.opennbt.tag.builtin.StringTag;
-
-import java.util.ArrayList;
-import java.util.TimerTask;
-import java.util.UUID;
 
 public class PlayerPackets {
 

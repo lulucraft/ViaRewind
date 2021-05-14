@@ -1,5 +1,8 @@
 package de.gerrygames.viarewind.protocol.protocol1_7_6_10to1_8.entityreplacements;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.gerrygames.viarewind.protocol.protocol1_7_6_10to1_8.Protocol1_7_6_10TO1_8;
 import de.gerrygames.viarewind.protocol.protocol1_7_6_10to1_8.metadata.MetadataRewriter;
 import de.gerrygames.viarewind.protocol.protocol1_7_6_10to1_8.types.Types1_7_6_10;
@@ -11,9 +14,6 @@ import us.myles.ViaVersion.api.data.UserConnection;
 import us.myles.ViaVersion.api.entities.Entity1_10Types;
 import us.myles.ViaVersion.api.minecraft.metadata.Metadata;
 import us.myles.ViaVersion.api.type.Type;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class EndermiteReplacement implements EntityReplacement {
 	@Getter
@@ -126,4 +126,10 @@ public class EndermiteReplacement implements EntityReplacement {
 
 		PacketUtil.sendPacket(despawn, Protocol1_7_6_10TO1_8.class, true, true);
 	}
+
+	@Override
+	public int getEntityId() {
+		return this.entityId;
+	}
+
 }

@@ -1,10 +1,10 @@
 package de.gerrygames.viarewind.protocol.protocol1_7_6_10to1_8.storage;
 
+import java.util.HashMap;
+
 import lombok.Data;
 import us.myles.ViaVersion.api.data.StoredObject;
 import us.myles.ViaVersion.api.data.UserConnection;
-
-import java.util.HashMap;
 
 public class Windows extends StoredObject {
 	public HashMap<Short, Short> types = new HashMap<>();
@@ -27,34 +27,34 @@ public class Windows extends StoredObject {
 
 	public static int getInventoryType(String name) {
 		switch(name) {
-			case "minecraft:container":
-				return 0;
-			case "minecraft:chest":
-				return 0;
-			case "minecraft:crafting_table":
-				return 1;
-			case "minecraft:furnace":
-				return 2;
-			case "minecraft:dispenser":
-				return 3;
-			case "minecraft:enchanting_table":
-				return 4;
-			case "minecraft:brewing_stand":
-				return 5;
-			case "minecraft:villager":
-				return 6;
-			case "minecraft:beacon":
-				return 7;
-			case "minecraft:anvil":
-				return 8;
-			case "minecraft:hopper":
-				return 9;
-			case "minecraft:dropper":
-				return 10;
-			case "EntityHorse":
-				return 11;
-			default:
-				throw new IllegalArgumentException("Unknown type " + name);
+		case "minecraft:container":
+			return 0;
+		case "minecraft:chest":
+			return 0;
+		case "minecraft:crafting_table":
+			return 1;
+		case "minecraft:furnace":
+			return 2;
+		case "minecraft:dispenser":
+			return 3;
+		case "minecraft:enchanting_table":
+			return 4;
+		case "minecraft:brewing_stand":
+			return 5;
+		case "minecraft:villager":
+			return 6;
+		case "minecraft:beacon":
+			return 7;
+		case "minecraft:anvil":
+			return 8;
+		case "minecraft:hopper":
+			return 9;
+		case "minecraft:dropper":
+			return 10;
+		case "EntityHorse":
+			return 11;
+		default:
+			throw new IllegalArgumentException("Unknown type " + name);
 		}
 	}
 
@@ -64,5 +64,37 @@ public class Windows extends StoredObject {
 		private short maxFuel = 0;
 		private short progress = 0;
 		private short maxProgress = 200;
+
+		public short getFuelLeft() {
+			return fuelLeft;
+		}
+
+		public void setFuelLeft(short fuelLeft) {
+			this.fuelLeft = fuelLeft;
+		}
+
+		public void setMaxFuel(short maxFuel) {
+			this.maxFuel = maxFuel;
+		}
+
+		public int getMaxFuel() {
+			return maxFuel;
+		}
+
+		public short getProgress() {
+			return progress;
+		}
+
+		public void setProgress(short progress) {
+			this.progress = progress;
+		}
+
+		public short getMaxProgress() {
+			return maxProgress;
+		}
+
+		public void setMaxProgress(short maxProgress) {
+			this.maxProgress = maxProgress;
+		}
 	}
 }

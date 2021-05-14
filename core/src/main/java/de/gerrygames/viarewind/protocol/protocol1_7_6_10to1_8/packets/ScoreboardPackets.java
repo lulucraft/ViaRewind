@@ -1,5 +1,9 @@
 package de.gerrygames.viarewind.protocol.protocol1_7_6_10to1_8.packets;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import de.gerrygames.viarewind.protocol.protocol1_7_6_10to1_8.Protocol1_7_6_10TO1_8;
 import de.gerrygames.viarewind.protocol.protocol1_7_6_10to1_8.storage.Scoreboard;
 import de.gerrygames.viarewind.utils.PacketUtil;
@@ -11,10 +15,6 @@ import us.myles.ViaVersion.api.remapper.PacketRemapper;
 import us.myles.ViaVersion.api.type.Type;
 import us.myles.ViaVersion.packets.State;
 import us.myles.ViaVersion.protocols.base.ProtocolInfo;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 public class ScoreboardPackets {
 

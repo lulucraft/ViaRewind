@@ -14,4 +14,13 @@ public class ViaRewind {
 		ViaRewind.platform = platform;
 		ViaRewind.config = config;
 	}
+
+	public static ViaRewindPlatform getPlatform() {
+		return platform;
+	}
+
+	public static ViaRewindConfig getConfig() {
+		return config;
+	}
+
 }

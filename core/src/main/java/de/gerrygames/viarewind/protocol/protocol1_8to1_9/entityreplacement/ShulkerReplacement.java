@@ -1,5 +1,8 @@
 package de.gerrygames.viarewind.protocol.protocol1_8to1_9.entityreplacement;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.gerrygames.viarewind.protocol.protocol1_8to1_9.Protocol1_8TO1_9;
 import de.gerrygames.viarewind.protocol.protocol1_8to1_9.metadata.MetadataRewriter;
 import de.gerrygames.viarewind.replacement.EntityReplacement;
@@ -12,9 +15,6 @@ import us.myles.ViaVersion.api.minecraft.metadata.Metadata;
 import us.myles.ViaVersion.api.minecraft.metadata.types.MetaType1_9;
 import us.myles.ViaVersion.api.type.Type;
 import us.myles.ViaVersion.api.type.types.version.Types1_8;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ShulkerReplacement implements EntityReplacement {
 	@Getter
@@ -111,5 +111,10 @@ public class ShulkerReplacement implements EntityReplacement {
 		despawn.write(Type.VAR_INT_ARRAY_PRIMITIVE, new int[] {entityId});
 
 		PacketUtil.sendPacket(despawn, Protocol1_8TO1_9.class, true, true);
+	}
+
+	@Override
+	public int getEntityId() {
+		return this.entityId;
 	}
 }

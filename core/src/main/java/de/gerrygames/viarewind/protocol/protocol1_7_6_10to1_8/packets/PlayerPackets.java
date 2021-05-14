@@ -1,6 +1,10 @@
 package de.gerrygames.viarewind.protocol.protocol1_7_6_10to1_8.packets;
 
+import java.util.List;
+import java.util.UUID;
+
 import com.google.common.base.Charsets;
+
 import de.gerrygames.viarewind.ViaRewind;
 import de.gerrygames.viarewind.protocol.protocol1_7_6_10to1_8.Protocol1_7_6_10TO1_8;
 import de.gerrygames.viarewind.protocol.protocol1_7_6_10to1_8.entityreplacements.ArmorStandReplacement;
@@ -40,9 +44,6 @@ import us.myles.ViaVersion.util.GsonUtil;
 import us.myles.viaversion.libs.opennbt.tag.builtin.CompoundTag;
 import us.myles.viaversion.libs.opennbt.tag.builtin.ListTag;
 import us.myles.viaversion.libs.opennbt.tag.builtin.StringTag;
-
-import java.util.List;
-import java.util.UUID;
 
 public class PlayerPackets {
 
@@ -536,21 +537,21 @@ public class PlayerPackets {
 						int action = packetWrapper.read(Type.VAR_INT);
 						UUID uuid = Utils.getUUID(packetWrapper.user());
 						switch (action) {
-							case 0:
-								titleRenderProvider.setTitle(uuid, packetWrapper.read(Type.STRING));
-								break;
-							case 1:
-								titleRenderProvider.setSubTitle(uuid, packetWrapper.read(Type.STRING));
-								break;
-							case 2:
-								titleRenderProvider.setTimings(uuid, packetWrapper.read(Type.INT), packetWrapper.read(Type.INT), packetWrapper.read(Type.INT));
-								break;
-							case 3:
-								titleRenderProvider.clear(uuid);
-								break;
-							case 4:
-								titleRenderProvider.reset(uuid);
-								break;
+						case 0:
+							titleRenderProvider.setTitle(uuid, packetWrapper.read(Type.STRING));
+							break;
+						case 1:
+							titleRenderProvider.setSubTitle(uuid, packetWrapper.read(Type.STRING));
+							break;
+						case 2:
+							titleRenderProvider.setTimings(uuid, packetWrapper.read(Type.INT), packetWrapper.read(Type.INT), packetWrapper.read(Type.INT));
+							break;
+						case 3:
+							titleRenderProvider.clear(uuid);
+							break;
+						case 4:
+							titleRenderProvider.reset(uuid);
+							break;
 						}
 					}
 				});
@@ -818,17 +819,17 @@ public class PlayerPackets {
 						packetWrapper.cancel();
 						//1.7 vanilla client is not sending this packet with animation!=1
 						switch (animation) {
-							case 104:
-								animation = 0;
-								break;
-							case 105:
-								animation = 1;
-								break;
-							case 3:
-								animation = 2;
-								break;
-							default:
-								return;
+						case 104:
+							animation = 0;
+							break;
+						case 105:
+							animation = 1;
+							break;
+						case 3:
+							animation = 2;
+							break;
+						default:
+							return;
 						}
 						PacketWrapper entityAction = new PacketWrapper(0x0B, null, packetWrapper.user());
 						entityAction.write(Type.VAR_INT, entityId);
